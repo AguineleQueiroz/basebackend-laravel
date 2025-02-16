@@ -1,18 +1,12 @@
+# Base backend with Laravel 10.x, Docker and php 8.1
 
-# Setup Docker Laravel 11 com PHP 8.3
-
-### Passo a passo
-Clone Repositório
+## Passo a passo para rodar o projeto
+Clone o projeto
 ```sh
-git clone https://github.com/ThiagolFPereira/setup-docker-laravel-11.git
+git clone https://github.com/AguineleQueiroz/basebackend.git baseapp
 ```
 ```sh
-cd setup-docker-laravel-11
-```
-
-Suba os containers do projeto
-```sh
-docker-compose up -d
+cd baseapp
 ```
 
 
@@ -21,25 +15,52 @@ Crie o Arquivo .env
 cp .env.example .env
 ```
 
-Acesse o container app
-```sh
-docker-compose exec app bash
+
+Atualize essas variáveis de ambiente no arquivo .env
+```dosini
+APP_NAME="Backend"
+APP_URL=http://localhost:8080
+
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=nome_que_desejar_db
+DB_USERNAME=nome_usuario
+DB_PASSWORD=senha_aqui
+
+CACHE_DRIVER=redis
+QUEUE_CONNECTION=redis
+SESSION_DRIVER=redis
+
+REDIS_HOST=redis
+REDIS_PASSWORD=null
+REDIS_PORT=6379
 ```
+
+
+Suba os containers do projeto
+```sh
+docker-compose up -d
+```
+
+
+Acesse o container
+```sh
+docker-compose exec backend bash
+```
+
 
 Instale as dependências do projeto
 ```sh
 composer install
 ```
 
+
 Gere a key do projeto Laravel
 ```sh
 php artisan key:generate
 ```
 
-Rodar as migrations
-```sh
-php artisan migrate
-```
 
 Acesse o projeto
-[http://localhost:8000](http://localhost:8000)
+[http://localhost](http://localhost)
