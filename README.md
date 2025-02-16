@@ -1,4 +1,4 @@
-# Base backend with Laravel 10.x, Docker and php 8.1
+# Base backend with Laravel 11.x, Docker and php 8.3
 
 ## Passo a passo para rodar o projeto
 Clone o projeto
@@ -19,7 +19,7 @@ cp .env.example .env
 Atualize essas variáveis de ambiente no arquivo .env
 ```dosini
 APP_NAME="Backend"
-APP_URL=http://localhost:8080
+APP_URL=http://localhost
 
 DB_CONNECTION=mysql
 DB_HOST=mysql
